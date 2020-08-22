@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderComponent } from './header/header.component';
+import { EnginesComponent } from './engines/engines.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeaderComponent } from './header/header.component';
     QaReportsComponent,
     FailureReportsComponent,
     ReportsComponent,
-    HeaderComponent
+    HeaderComponent,
+    EnginesComponent
   ],
   imports: [
     BrowserModule,

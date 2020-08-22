@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { QaReportsComponent } from './qa-reports/qa-reports.component';
 import { FailureReportsComponent } from './failure-reports/failure-reports.component';
 import { ReportsComponent } from './reports/reports.component';
+import { EnginesComponent } from './engines/engines.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'qa-reports', component: QaReportsComponent },
   { path: 'failure-reports', component: FailureReportsComponent },
+  { path: 'engines', component: EnginesComponent },
   { path: 'reports', component: ReportsComponent }
 ];
 
