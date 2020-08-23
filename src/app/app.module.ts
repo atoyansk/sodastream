@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { QaReportsComponent } from './qa-reports/qa-reports.component';
 import { FailureReportsComponent } from './failure-reports/failure-reports.component';
 import { ReportsComponent } from './reports/reports.component';
+import { HeaderComponent } from './header/header.component';
+import { EnginesComponent } from './engines/engines.component';
 
 import { environment } from '../environments/environment';
 
@@ -15,8 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { HeaderComponent } from './header/header.component';
-import { EnginesComponent } from './engines/engines.component';
+import { ValvesComponent } from './valves/valves.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EnginesComponent } from './engines/engines.component';
     FailureReportsComponent,
     ReportsComponent,
     HeaderComponent,
-    EnginesComponent
+    EnginesComponent,
+    ValvesComponent
   ],
   imports: [
     BrowserModule,
