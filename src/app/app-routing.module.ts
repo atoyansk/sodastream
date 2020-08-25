@@ -8,6 +8,7 @@ import { QaReportsComponent } from './qa-reports/qa-reports.component';
 import { FailureReportsComponent } from './failure-reports/failure-reports.component';
 import { ReportsComponent } from './reports/reports.component';
 import { EnginesComponent } from './engines/engines.component';
+import { ValvesComponent } from './valves/valves.component';
 
 import { AuthGuard } from './utils/auth.guard';
 
@@ -15,11 +16,12 @@ import { AuthGuard } from './utils/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'forgot-password',        component: ForgotPasswordComponent },
-  { path: 'register-user',          component: RegisterUserComponent, canActivate: [AuthGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'register-user', component: RegisterUserComponent, canActivate: [AuthGuard] },
   { path: 'qa-reports', component: QaReportsComponent, canActivate: [AuthGuard] },
   { path: 'failure-reports', component: FailureReportsComponent, canActivate: [AuthGuard] },
   { path: 'engines', component: EnginesComponent, canActivate: [AuthGuard] },
+  { path: 'valves', component: ValvesComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] }
 ];
 

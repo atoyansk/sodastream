@@ -24,6 +24,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './utils/auth.guard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AuthGuard } from './utils/auth.guard';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgbModule
   ],
   providers: [AuthGuard, AuthService, AngularFireStorage],
   bootstrap: [AppComponent]

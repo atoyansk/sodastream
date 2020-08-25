@@ -1,0 +1,44 @@
+.navbar {
+    border: 1px solid rgba(0,0,0,.6);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    padding: 0 2rem;
+}
+.bg-dark {
+    background-color: #343a40!important;
+}
+.navbar-brand {
+    padding: .75rem 1rem calc(54px - .75rem - 30px);
+    margin-right: 0;
+    border-right: 1px solid rgba(0,0,0,.2);
+}
+
+.branding {
+    height: 35px;
+    width: 240px;
+    background: url('../../assets/logo.png') center/236px 35px no-repeat;
+}
+
+.navbar .nav-link {
+    padding: 1rem;
+    border-left: 1px solid rgba(255,255,255,.1);
+    border-right: 1px solid rgba(0,0,0,.2);
+    color: rgba(255, 255, 255, 0.8) !important;
+    &:hover, &:active, &:focus{
+        background-color: #151719!important;
+        color: #FFF !important;
+    }
+}
+
+.navbar-dark .navbar-nav .nav-link.active{
+    background-color: #151719!important;
+    color: #FFF !important;
+}
+.dropdown-item {
+    padding: 5px 15px !important;
+}
+.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,.15);
+}
