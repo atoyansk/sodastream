@@ -8,23 +8,46 @@
       </button>
     
       <div class="collapse navbar-collapse navbar-fixed-top" id="navbarColor01">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/qa-reports" routerLinkActive="active">ניהול האיכות</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/failure-reports" routerLinkActive="active">דוחות תקלה</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/engines" routerLinkActive="active">מכונות</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/valves" routerLinkActive="active">שסתומים</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/reports" routerLinkActive="active">דוחות</a>
-          </li>
-        </ul>
+        <div *ngIf="(authService.user$ | async)?.role === 'admin'; then admin else qa"></div>
+        <ng-template #admin> 
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/qa-reports" routerLinkActive="active">ניהול האיכות</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/failure-reports" routerLinkActive="active">דוחות תקלה</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/engines" routerLinkActive="active">מכונות</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/valves" routerLinkActive="active">שסתומים</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/reports" routerLinkActive="active">דוחות</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register-user" routerLinkActive="active">רשום משתמש</a>
+            </li>
+          </ul>
+        </ng-template>
+        <ng-template #qa>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/qa-reports" routerLinkActive="active">ניהול האיכות</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/failure-reports" routerLinkActive="active">דוחות תקלה</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/engines" routerLinkActive="active">מכונות</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/valves" routerLinkActive="active">שסתומים</a>
+            </li>
+          </ul>
+        </ng-template>
+        
         <ul class="navbar-nav mr-auto"> 
           <li class="nav-item">
             <a class="nav-link" routerLink="" routerLinkActive="active">יציאה</a>

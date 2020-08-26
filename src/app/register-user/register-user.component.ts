@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register-user',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterUserComponent implements OnInit {
 
-  constructor() { }
+  faEnvelope = faEnvelope;
+  faKey = faKey;
+
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

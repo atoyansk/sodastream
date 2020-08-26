@@ -13,6 +13,7 @@ import { switchMap } from 'rxjs/operators';
 export class AuthService {
 
     user$: Observable<User>;
+    role$: Observable<User>;
 
     constructor(
         private afAuth: AngularFireAuth,
@@ -30,6 +31,15 @@ export class AuthService {
               }
             })
           );
+          // this.role$ = this.afAuth.authState.pipe(
+          //   switchMap(user => {
+          //       return this.afs.doc<User>(`users/${user.uid}/role`).valueChanges().map(role => {
+          //         user.role = role;
+          //         return user;
+          //        });
+          //   })
+          // );
+          // console.log(this.role$);
          }
 
         //  signIn(email, password) {
@@ -47,7 +57,7 @@ export class AuthService {
           this.afAuth.auth.signInWithEmailAndPassword(email, password)
             .then(res => {
               this.router.navigate(['qa-reports']);
-              this.setUserData(res.user);
+              // this.setUserData(res.user);
               console.log('You are Successfully logged in!');
             })
           .catch(err => {
@@ -55,11 +65,12 @@ export class AuthService {
           });
         }
 
-        signUp(email, password) {
-          return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        signUp(name: string, email: string, password: string, role: string) {
+          console.log(email, password);
+          this.afAuth.auth.createUserWithEmailAndPassword(email, password)
             .then((result) => {
-              this.sendVerificationMail();
-              this.setUserData(result.user);
+              // this.sendVerificationMail();
+              this.setUserData(result.user, name, role);
             }).catch((error) => {
               console.log(error.message);
             });
@@ -92,15 +103,15 @@ export class AuthService {
         //   return this.setUserData(credential.user);
         // }
 
-        private setUserData(user) {
+        private setUserData(user, name, role) {
           const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
           const userData = {
             uid: user.uid,
+            name,
             email: user.email,
-            displayName: user.displayName,
             photoURL: user.photoURL,
-            role: user.role
+            role
           };
 
           return userRef.set(userData, { merge: true });

@@ -1,1 +1,51 @@
-<p>register-user works!</p>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+            <div class="card-header">
+				<h3>רשום משתמש</h3>
+			</div>
+			<div class="card-body">
+				<form>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="שם פרטי" #userName required>
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="כתובת דואל" #userEmail required>
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="סיסמה" #userPwd required>
+                    </div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-lock"></i></span>
+						</div>
+						<select class="form-control" #userRole required>
+                            <option value="">- בחר תפקיד -</option>
+                          <option value="admin">מנהל</option>
+                          <option value="qa">נאמן איכות</option>
+                        </select>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-block login_btn" value="להרשם" (click)="authService.signUp(userName.value, userEmail.value, userPwd.value, userRole.value)">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center">
+					<span>כבר יש לך חשבון? <a class="redirect" routerLink="/login">תתחבר</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

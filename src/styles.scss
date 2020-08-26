@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500&display=swap&subset=latin-ext');
+
 @import 'assets/styles/variables';
+
+@import 'assets/styles/scss/fontawesome.scss';
+@import 'assets/styles/scss/solid.scss';
 
 /*GENERAL*/
 body {
@@ -40,6 +45,10 @@ body {
     height: 100%;
     align-content: center;
     margin-top: 80px;
+}
+
+.login{
+  height: 100vh;
 }
     
 .card{
