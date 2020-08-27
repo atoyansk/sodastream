@@ -33,6 +33,6 @@ export class CrudMethodsService {
   }
 
   deleteItem(basePath: string, key: string) {
-    this.firestore.doc(basePath + '/' + key).delete();
+    return this.firestore.doc(basePath + '/' + key).delete();
   }
 }

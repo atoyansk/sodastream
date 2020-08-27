@@ -13,6 +13,7 @@ body {
     font-size: 15px;
     line-height: 1.9;
     color: #4E4E4E;
+    text-align: right !important;
   }
   
   h2 {
@@ -38,6 +39,17 @@ body {
   a:focus, a:hover{
     color: var(--primaria) !important;
     text-decoration: none !important;
+  }
+
+  .first-block{
+    border-left: 1px solid var(--gray-shadow);
+  }
+  .blocks{
+    padding: 10px 30px !important;
+  }
+
+  .form-block{
+    padding: 0 40px;
   }
 
 /* LOGIN PROCESS CARDS */
@@ -89,6 +101,18 @@ input:focus{
         background-color: var(--secundaria) !important;
     }
 }
+.cancel_btn{
+  color: white !important;
+  font-weight: 600 !important;
+  margin-top: 30px !important;
+  &:hover{
+      color: white !important;
+      background-color: var(--gray-shadow) !important;
+  }
+}
+.more-pad{
+  padding: 20px 60px !important;
+}
 .links a{ margin-left: 4px; }
 
 .form-footer{
@@ -101,6 +125,9 @@ input:focus{
   background-color: #f6f6f6;
 }
 
+.controles{
+  text-align: left;
+}
 
 
 //TOASTER

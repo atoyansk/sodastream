@@ -77,7 +77,7 @@ export class AuthService {
         forgotPassword(passwordResetEmail) {
           return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
           .then(() => {
-            window.alert('נשלח דןא"ל לאיפוס סיסמה, בדוק את ההודעות שלך');
+            window.alert('נשלח דוא"ל לאיפוס סיסמה, בדוק את ההודעות שלך');
           }).catch((error) => {
             window.alert(error);
           });

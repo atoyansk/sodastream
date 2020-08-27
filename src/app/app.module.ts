@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './utils/auth.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -44,11 +46,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard, AuthService, AngularFireStorage],
   bootstrap: [AppComponent]

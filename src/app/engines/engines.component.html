@@ -1,1 +1,43 @@
-<p>engines works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 col-12 first-block blocks">
+            <h2>מכונה חדשה</h2>
+            <hr>
+            <div class="form-block">
+                <form [formGroup]="myForm" (ngSubmit)="saveEngine()">
+                    <div class="form-group">
+                      <label for="engineName">שם מכונה</label>
+                      <input type="text" class="form-control" id="engineName" placeholder="תקליד את השם מכונה" formControlName="engineName"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="engineNumber">מספר מכונה</label>
+                      <input type="text" class="form-control" id="engineNumber" placeholder="תקליד את המספר מכונה" formControlName="engineNumber"/>
+                    </div>
+                    <div class="form-footer more-pad d-flex justify-content-around">
+                        <button type="submit" class="btn login_btn">אישור</button>
+                        <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-5 col-sm-12 col-12 blocks">
+            <h2>מכונות רשומות</h2>
+            <hr>
+            <div class="card" *ngFor="let eng of engine">
+              <div class="card-block" style="padding: 15px 0;">
+                <div class="col-md-12 row">
+                  <div class="col-md-10">
+                    <h5>שם מכונה: {{ eng.name }}</h5>
+                    <span>מספר מכונה: {{ eng.number }}</span>
+                  </div> 
+                  <div class="col-md-2 controles">
+                    <button class="btn btn-danger" (click)="delEngine(eng.number, eng.key)">מחק</button>
+                  </div>
+                </div> 
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
