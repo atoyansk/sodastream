@@ -31,15 +31,6 @@ export class AuthService {
               }
             })
           );
-          // this.role$ = this.afAuth.authState.pipe(
-          //   switchMap(user => {
-          //       return this.afs.doc<User>(`users/${user.uid}/role`).valueChanges().map(role => {
-          //         user.role = role;
-          //         return user;
-          //        });
-          //   })
-          // );
-          // console.log(this.role$);
          }
 
         //  signIn(email, password) {

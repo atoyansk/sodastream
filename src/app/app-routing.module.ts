@@ -10,6 +10,8 @@ import { ReportsComponent } from './reports/reports.component';
 import { EnginesComponent } from './engines/engines.component';
 import { ValvesComponent } from './valves/valves.component';
 
+import { HeaderComponent } from './header/header.component';
+
 import { AuthGuard } from './utils/auth.guard';
 
 
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path: 'failure-reports', component: FailureReportsComponent, canActivate: [AuthGuard] },
   { path: 'engines', component: EnginesComponent, canActivate: [AuthGuard] },
   { path: 'valves', component: ValvesComponent, canActivate: [AuthGuard] },
-  { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] }
+  { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
+  { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
