@@ -17,6 +17,10 @@
                         <option value="US">US</option>
                       </select>
                     </div>
+                    <div class="form-group">
+                      <label for="valveDesc">תיאור פריט</label>
+                      <input type="text" class="form-control" id="valveDesc" placeholder="תקליד את התיאור פריט" formControlName="valveDesc"/>
+                    </div>
                     <div class="form-footer more-pad d-flex justify-content-around">
                         <button type="submit" class="btn login_btn">אישור</button>
                         <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
@@ -32,8 +36,8 @@
               <div class="card-block" style="padding: 15px 0;">
                 <div class="col-md-12 row">
                   <div class="col-md-10">
-                    <h5>אל: {{ valv.to }}</h5>
-                    <span>מספר שסתום: {{ valv.code }}</span>
+                    <h5>אל: {{ valv.to }}-{{ valv.code }}</h5>
+                    <span>תיאור: {{ valv.description }}</span>
                   </div> 
                   <div class="col-md-2 controles">
                     <button class="btn btn-danger" (click)="delValve(valv.code, valv.key)">מחק</button>

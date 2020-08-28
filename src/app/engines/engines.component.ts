@@ -40,14 +40,20 @@ export class EnginesComponent implements OnInit {
     let dd = today.getDate();
     let mm = today.getMonth() + 1;
 
+    const hr = today.getHours();
+    const min = today.getMinutes();
+
     const yyyy = today.getFullYear();
     if (dd < 10) {dd = 0 + dd; }
     if (mm < 10) {mm = 0 + mm; }
     const hoje = dd + '/' + mm + '/' + yyyy;
+    const hora = hr + ':' + min;
+
+    console.log(hora);
 
     this.myForm = this.fb.group({
       engineName: this.fb.control(''),
-      engineNumber: this.fb.control(''),
+      engineCode: this.fb.control(''),
       engineType: this.fb.control(''),
       engineDate: this.fb.control(hoje)
     });

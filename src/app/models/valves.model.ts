@@ -3,4 +3,5 @@ export class Valves {
     creationDate: Date;
     code: string;
     to: string;
+    description: string;
 }

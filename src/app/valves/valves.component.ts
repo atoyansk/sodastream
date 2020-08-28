@@ -48,6 +48,7 @@ export class ValvesComponent implements OnInit {
     this.myForm = this.fb.group({
       valveCode: this.fb.control(''),
       valveTo: this.fb.control(''),
+      valveDesc: this.fb.control(''),
       valveDate: this.fb.control(hoje)
     });
 
@@ -76,6 +77,7 @@ export class ValvesComponent implements OnInit {
     this.crudService.createItem(this.basePath, {
       code: this.myForm.value.valveCode,
       to: this.myForm.value.valveTo,
+      description: this.myForm.value.valveDesc,
       creationDate: this.myForm.value.valveDate
     }).then(() => {
       this.resetForm();
@@ -102,6 +104,7 @@ export class ValvesComponent implements OnInit {
     this.submitted = false;
     this.myForm.controls.valveCode.setValue('');
     this.myForm.controls.valveTo.setValue('');
+    this.myForm.controls.valveDesc.setValue('');
   }
 
 }
