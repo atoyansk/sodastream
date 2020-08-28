@@ -1,1 +1,48 @@
-<p>valves works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 col-12 first-block blocks">
+            <h2>שסתום חדש</h2>
+            <hr>
+            <div class="form-block">
+                <form [formGroup]="myForm" (ngSubmit)="saveValve()">
+                    <div class="form-group">
+                      <label for="valveCode">מספר שסתום</label>
+                      <input type="text" class="form-control" id="valveCode" placeholder="תקליד את המספר שסתום" formControlName="valveCode"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="valveTo">מיקום יעד</label>
+                      <select class="form-control" id="valveTo" formControlName="valveTo">
+                        <option value="">- בחר מיקום יעד -</option>
+                      <option value="EU">EU</option>
+                      <option value="US">US</option>
+                    </select>
+                    </div>
+                    <div class="form-footer more-pad d-flex justify-content-around">
+                        <button type="submit" class="btn login_btn">אישור</button>
+                        <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-5 col-sm-12 col-12 blocks">
+            <h2>שסתומים רשומים</h2>
+            <hr>
+            <div class="card" *ngFor="let valv of valves">
+              <div class="card-block" style="padding: 15px 0;">
+                <div class="col-md-12 row">
+                  <div class="col-md-10">
+                    <h5>אל: {{ valv.to }}</h5>
+                    <span>מספר שסתום: {{ valv.code }}</span>
+                  </div> 
+                  <div class="col-md-2 controles">
+                    <button class="btn btn-danger" (click)="delValve(valv.code, valv.key)">מחק</button>
+                  </div>
+                </div> 
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
