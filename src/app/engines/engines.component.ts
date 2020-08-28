@@ -48,6 +48,7 @@ export class EnginesComponent implements OnInit {
     this.myForm = this.fb.group({
       engineName: this.fb.control(''),
       engineNumber: this.fb.control(''),
+      engineType: this.fb.control(''),
       engineDate: this.fb.control(hoje)
     });
 
@@ -74,7 +75,8 @@ export class EnginesComponent implements OnInit {
 
     this.crudService.createItem(this.basePath, {
       name: this.myForm.value.engineName,
-      number: this.myForm.value.engineNumber,
+      code: this.myForm.value.engineCode,
+      type: this.myForm.value.engineType,
       creationDate: this.myForm.value.engineDate
     }).then(() => {
       this.resetForm();
@@ -85,8 +87,8 @@ export class EnginesComponent implements OnInit {
     });
   }
 
-  delEngine(numero, key) {
-    if (confirm('האם אתה בטוח שברצונך למחוק ' + numero + '?')) {
+  delEngine(code, key) {
+    if (confirm('האם אתה בטוח שברצונך למחוק ' + code + '?')) {
       this.crudService.deleteItem(this.basePath, key)
       .then(() => {
         this.showDel();
@@ -100,7 +102,8 @@ export class EnginesComponent implements OnInit {
   resetForm() {
     this.submitted = false;
     this.myForm.controls.engineName.setValue('');
-    this.myForm.controls.engineNumber.setValue('');
+    this.myForm.controls.engineCode.setValue('');
+    this.myForm.controls.engineType.setValue('');
   }
 
 }

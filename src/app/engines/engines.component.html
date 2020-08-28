@@ -10,8 +10,18 @@
                       <input type="text" class="form-control" id="engineName" placeholder="תקליד את השם מכונה" formControlName="engineName"/>
                     </div>
                     <div class="form-group">
-                      <label for="engineNumber">מספר מכונה</label>
-                      <input type="text" class="form-control" id="engineNumber" placeholder="תקליד את המספר מכונה" formControlName="engineNumber"/>
+                      <label for="engineCode">מספר מכונה</label>
+                      <input type="text" class="form-control" id="engineCode" placeholder="תקליד את המספר מכונה" formControlName="engineCode"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="engineType">סוג מכונה</label>
+                      <select class="form-control" id="engineType" formControlName="engineType">
+                        <option value="">- בחר את סוג המכונה -</option>
+                        <option value="type1">סוג 1</option>
+                        <option value="type2">סוג 2</option>
+                        <option value="type3">סוג 3</option>
+                        <option value="type4">סוג 4</option>
+                      </select>
                     </div>
                     <div class="form-footer more-pad d-flex justify-content-around">
                         <button type="submit" class="btn login_btn">אישור</button>
@@ -29,10 +39,10 @@
                 <div class="col-md-12 row">
                   <div class="col-md-10">
                     <h5>שם מכונה: {{ eng.name }}</h5>
-                    <span>מספר מכונה: {{ eng.number }}</span>
+                    <span>מספר מכונה: {{ eng.code }}</span>
                   </div> 
                   <div class="col-md-2 controles">
-                    <button class="btn btn-danger" (click)="delEngine(eng.number, eng.key)">מחק</button>
+                    <button class="btn btn-danger" (click)="delEngine(eng.code, eng.key)">מחק</button>
                   </div>
                 </div> 
               </div>
