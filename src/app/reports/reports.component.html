@@ -1,1 +1,83 @@
-<p>reports works!</p>
+<div class="container">
+    <ngb-tabset [destroyOnHide]="false">
+        <ngb-tab title="מומנט מתאם">
+        <ng-template ngbTabContent>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">תאריך</th>
+                  <th scope="col">שעה</th>
+                  <th scope="col">נאמן איכות</th>
+                  <th scope="col">מכונה</th>
+                  <th scope="col">מס מנה</th>
+                  <th scope="col">מק"ט</th>
+                  <th scope="col">תיאור פריט</th>
+                  <th scope="col">תוצאה</th>
+                  <th scope="col">מכות</th>
+                  <th scope="col">סמני מעיכה</th>
+                  <th scope="col">הערות</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let report of reports; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ report.creationDate }}</td>
+                  <td>{{ report.creationTime }}</td>
+                  <td>{{ report.createdBy }}</td>
+                  <td>{{ report.engine }}</td>
+                  <td>{{ report.manaCode }}</td>
+                  <td>{{ report.valveCode }}</td>
+                  <td>{{ report.valveDesc }}</td>
+                  <td>{{ report.result }}</td>
+                  <td>{{ report.defects }}</td>
+                  <td>{{ report.stretchMarks }}</td>
+                  <td>{{ report.remarks }}</td>
+                </tr>
+                </tbody>
+              </table>
+        </ng-template>
+        </ngb-tab>
+        <ngb-tab title="הטבעה">
+        <ng-template ngbTabContent>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">תאריך</th>
+                  <th scope="col">שעה</th>
+                  <th scope="col">נאמן איכות</th>
+                  <th scope="col">מכונה</th>
+                  <th scope="col">מס מנה</th>
+                  <th scope="col">מק"ט</th>
+                  <th scope="col">תיאור פריט</th>
+                  <th scope="col">מיקום</th>
+                  <th scope="col">תואם שרטוט</th>
+                  <th scope="col">קריא/ברור</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let repo of reports2; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ repo.creationDate }}</td>
+                  <td>{{ repo.creationTime }}</td>
+                  <td>{{ repo.createdBy }}</td>
+                  <td>{{ repo.engine }}</td>
+                  <td>{{ repo.manaCode }}</td>
+                  <td>{{ repo.valveCode }}</td>
+                  <td>{{ repo.valveDesc }}</td>
+                  <td>{{ repo.location }}</td>
+                  <td>{{ repo.compatible }}</td>
+                  <td>{{ repo.readable }}</td>
+                </tr>
+                </tbody>
+              </table>
+        </ng-template>
+        </ngb-tab>
+        <ngb-tab title="סוג 3">
+        <ng-template ngbTabContent>
+            
+        </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+</div>

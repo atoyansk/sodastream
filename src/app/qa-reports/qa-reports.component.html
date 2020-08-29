@@ -4,7 +4,7 @@
             <h2>רישום חדש</h2>
             <hr>
             <div class="form-block">
-                <form [formGroup]="qaForm" (ngSubmit)="saveQA()">
+                <form [formGroup]="qaForm">
                     <div class="form-group">
                       <label for="qaEngine">מכונה</label>
                       <select class="form-control" id="qaEngine" formControlName="qaEngine" (change)="onEngineChange()">
@@ -32,11 +32,32 @@
                             <label for="remarks">הערות</label>
                             <input type="text" class="form-control" id="remarks" placeholder="תקליד את ההערות" formControlName="remarks"/>
                           </div>
+                          <div class="form-footer more-pad d-flex justify-content-around">
+                            <button type="button" class="btn login_btn" (click)="saveQA1()">אישור</button>
+                            <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
+                        </div>
                      </div>
-                     <div class="form-footer more-pad d-flex justify-content-around">
+                     <div *ngIf="engfields === 2">
+                      <div class="form-group">
+                        <label for="manaCode">מספר מנה</label>
+                        <input type="text" class="form-control" id="manaCode" placeholder="תקליד את המספר מנה" formControlName="manaCode"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="valveCode">מק"ט</label>
+                        <select class="form-control" id="valveCode" formControlName="valveCode">
+                          <option [ngValue]="null" disabled>- בחר את המק"ט -</option>
+                          <option *ngFor="let valve of valves" [ngValue]="valve">{{valve.to}}-{{valve.code}}</option>
+                        </select>
+                      </div>
+                      <div class="form-footer more-pad d-flex justify-content-around">
+                          <button type="button" class="btn login_btn" (click)="saveQA2()">אישור</button>
+                          <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
+                      </div>
+                     </div>
+                     <!-- <div class="form-footer more-pad d-flex justify-content-around">
                          <button type="submit" class="btn login_btn">אישור</button>
                          <button type="button" class="btn btn-secondary cancel_btn" (click)="resetForm()">ביטול</button>
-                     </div>
+                     </div> -->
                 </form>
             </div>
             

@@ -62,16 +62,16 @@ export class QaReportsComponent implements OnInit {
     const today: Date = new Date();
     today.toISOString().substr(11, 8);
     const month = today.getMonth() + 1;
-    let dd = (today.getDate() < 10 ? '0' : '') + today.getDate();
-    let mm = (month < 10 ? '0' : '') + month;
+    const dd = (today.getDate() < 10 ? '0' : '') + today.getDate();
+    const mm = (month < 10 ? '0' : '') + month;
 
-    let hr = (today.getHours() < 10 ? '0' : '') + today.getHours();
-    let min = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+    // const hr = (today.getHours() < 10 ? '0' : '') + today.getHours();
+    // const min = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
 
     const yyyy = today.getFullYear();
 
     const hoje = dd + '/' + mm + '/' + yyyy;
-    const hora = hr + ':' + min;
+    // const hora = hr + ':' + min;
 
     const ok = 'OK';
 
@@ -80,12 +80,15 @@ export class QaReportsComponent implements OnInit {
       manaCode: this.fb.control(''),
       valveCode: this.fb.control(''),
       qaDate: this.fb.control(hoje),
-      qaTime: this.fb.control(hora),
+      qaTime: this.fb.control(''),
       createdBy: this.fb.control(''),
       result: this.fb.control(''),
       stretchMarks: this.fb.control(ok),
       defects: this.fb.control(ok),
-      remarks: this.fb.control('')
+      remarks: this.fb.control(''),
+      location: this.fb.control(ok),
+      compatible: this.fb.control(ok),
+      readable: this.fb.control(ok)
     });
 
     this.authService.user$.subscribe(user => {
@@ -130,19 +133,26 @@ export class QaReportsComponent implements OnInit {
     }
  }
 
-  saveQA() {
+  saveQA1() {
 
     this.submitted = true;
 
     if (this.qaForm.invalid) {
       return;
     }
+    const cDate: Date = new Date();
+    cDate.toISOString().substr(11, 8);
+    const hr = (cDate.getHours() < 10 ? '0' : '') + cDate.getHours();
+    const min = (cDate.getMinutes() < 10 ? '0' : '') + cDate.getMinutes();
+
+    const hora = hr + ':' + min;
 
     this.crudService.createItem(this.basePath, {
       engine: this.qaForm.value.qaEngine.code,
+      engType: this.qaForm.value.qaEngine.type,
       manaCode: this.qaForm.value.manaCode,
       creationDate: this.qaForm.value.qaDate,
-      creationTime: this.qaForm.value.qaTime,
+      creationTime: hora,
       createdBy: this.qaForm.value.createdBy,
       valveCode: this.qaForm.value.valveCode.code,
       valveDesc: this.qaForm.value.valveCode.description,
@@ -150,6 +160,41 @@ export class QaReportsComponent implements OnInit {
       stretchMarks: this.qaForm.value.stretchMarks,
       defects: this.qaForm.value.defects,
       remarks: this.qaForm.value.remarks
+    }).then(() => {
+      this.resetForm();
+      this.showSuccess();
+    }).catch((err) => {
+      this.showError();
+      console.log(err);
+    });
+  }
+
+  saveQA2() {
+
+    this.submitted = true;
+
+    if (this.qaForm.invalid) {
+      return;
+    }
+    const cDate: Date = new Date();
+    cDate.toISOString().substr(11, 8);
+    const hr = (cDate.getHours() < 10 ? '0' : '') + cDate.getHours();
+    const min = (cDate.getMinutes() < 10 ? '0' : '') + cDate.getMinutes();
+
+    const hora = hr + ':' + min;
+
+    this.crudService.createItem(this.basePath, {
+      engine: this.qaForm.value.qaEngine.code,
+      engType: this.qaForm.value.qaEngine.type,
+      manaCode: this.qaForm.value.manaCode,
+      creationDate: this.qaForm.value.qaDate,
+      creationTime: hora,
+      createdBy: this.qaForm.value.createdBy,
+      valveCode: this.qaForm.value.valveCode.code,
+      valveDesc: this.qaForm.value.valveCode.description,
+      location: this.qaForm.value.location,
+      compatible: this.qaForm.value.compatible,
+      readable: this.qaForm.value.readable
     }).then(() => {
       this.resetForm();
       this.showSuccess();
