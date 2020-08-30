@@ -28,6 +28,11 @@ export class CrudMethodsService {
     return this.firestore.collection(basePath, res => res.where(field, '==', value).where(field2, '==', value2)).snapshotChanges();
   }
 
+  getFilterSort(basePath: string, field: string, value: any, field2: string, value2: any, field3: string, sort: any) {
+    return this.firestore.collection(basePath, res => res.where(field, '==', value).where(field2, '==', value2)
+                        .orderBy(field3, sort)).snapshotChanges();
+  }
+
   createItem(basePath: string, value: any) {
     return this.firestore.collection(basePath).add(value);
   }

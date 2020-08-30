@@ -38,6 +38,46 @@
               </table>
         </ng-template>
         </ngb-tab>
+
+        <ngb-tab title="מומנט מכסה">
+          <ng-template ngbTabContent>
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">תאריך</th>
+                    <th scope="col">שעה</th>
+                    <th scope="col">נאמן איכות</th>
+                    <th scope="col">מכונה</th>
+                    <th scope="col">מס מנה</th>
+                    <th scope="col">מק"ט</th>
+                    <th scope="col">תיאור פריט</th>
+                    <th scope="col">תוצאה</th>
+                    <th scope="col">מכות</th>
+                    <th scope="col">סמני מעיכה</th>
+                    <th scope="col">הערות</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let repor of reports1; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ repor.creationDate }}</td>
+                    <td>{{ repor.creationTime }}</td>
+                    <td>{{ repor.createdBy }}</td>
+                    <td>{{ repor.engine }}</td>
+                    <td>{{ repor.manaCode }}</td>
+                    <td>{{ repor.valveCode }}</td>
+                    <td>{{ repor.valveDesc }}</td>
+                    <td>{{ repor.result }}</td>
+                    <td>{{ repor.defects }}</td>
+                    <td>{{ repor.stretchMarks }}</td>
+                    <td>{{ repor.remarks }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+          </ng-template>
+          </ngb-tab>
+
         <ngb-tab title="הטבעה">
         <ng-template ngbTabContent>
             <table class="table table-striped">
@@ -74,10 +114,115 @@
               </table>
         </ng-template>
         </ngb-tab>
-        <ngb-tab title="סוג 3">
+        <ngb-tab title="מברגות ידניות">
         <ng-template ngbTabContent>
-            
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">תאריך</th>
+              <th scope="col">שעה</th>
+              <th scope="col">נאמן איכות</th>
+              <th scope="col">מברגה</th>
+              <th scope="col">תוצאה</th>
+              <th scope="col">מכות</th>
+              <th scope="col">סמני מעיכה</th>
+              <th scope="col">הערות</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rep of reports3; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ rep.creationDate }}</td>
+              <td>{{ rep.creationTime }}</td>
+              <td>{{ rep.createdBy }}</td>
+              <td>{{ rep.engine }}</td>
+              <td>{{ rep.result }}</td>
+              <td>{{ rep.defects }}</td>
+              <td>{{ rep.stretchMarks }}</td>
+              <td>{{ rep.remarks }}</td>
+            </tr>
+            </tbody>
+          </table>
         </ng-template>
         </ngb-tab>
+
+        <ngb-tab title="כבישת רשת">
+          <ng-template ngbTabContent>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">תאריך</th>
+                <th scope="col">שעה</th>
+                <th scope="col">נאמן איכות</th>
+                <th scope="col">מברגה</th>
+                <th scope="col">מס מנה</th>
+                <th scope="col">מק"ט</th>
+                <th scope="col">תיאור פריט</th>
+                <th scope="col">שבבים</th>
+                <th scope="col">תצורת הידוק</th>
+                <th scope="col">בדיקה במתקן</th>
+                <th scope="col">הערות</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let rep of reports4; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ rep.creationDate }}</td>
+                <td>{{ rep.creationTime }}</td>
+                <td>{{ rep.createdBy }}</td>
+                <td>{{ rep.engine }}</td>
+                <td>{{ rep.manaCode }}</td>
+                <td>{{ rep.valveCode }}</td>
+                <td>{{ rep.valveDesc }}</td>
+                <td>{{ rep.speck }}</td>
+                <td>{{ rep.tightening }}</td>
+                <td>{{ rep.facility }}</td>
+                <td>{{ rep.remarks }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </ng-template>
+          </ngb-tab>
+
+          <ngb-tab title="סמרור פין">
+            <ng-template ngbTabContent>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">תאריך</th>
+                  <th scope="col">שעה</th>
+                  <th scope="col">נאמן איכות</th>
+                  <th scope="col">מברגה</th>
+                  <th scope="col">מס מנה</th>
+                  <th scope="col">מק"ט</th>
+                  <th scope="col">תיאור פריט</th>
+                  <th scope="col">בדיקת שליפה</th>
+                  <th scope="col">מכות</th>
+                  <th scope="col">הזזה קפיצית</th>
+                  <th scope="col">הערות</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let rep of reports5; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ rep.creationDate }}</td>
+                  <td>{{ rep.creationTime }}</td>
+                  <td>{{ rep.createdBy }}</td>
+                  <td>{{ rep.engine }}</td>
+                  <td>{{ rep.manaCode }}</td>
+                  <td>{{ rep.valveCode }}</td>
+                  <td>{{ rep.valveDesc }}</td>
+                  <td>{{ rep.retrieval }}</td>
+                  <td>{{ rep.defects }}</td>
+                  <td>{{ rep.spring }}</td>
+                  <td>{{ rep.remarks }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </ng-template>
+            </ngb-tab>
     </ngb-tabset>
 </div>

@@ -77,6 +77,7 @@ export class QaReportsComponent implements OnInit {
 
     this.qaForm = this.fb.group({
       qaEngine: this.fb.control(''),
+      engSubtype: this.fb.control(''),
       manaCode: this.fb.control(''),
       valveCode: this.fb.control(''),
       qaDate: this.fb.control(hoje),
@@ -88,7 +89,12 @@ export class QaReportsComponent implements OnInit {
       remarks: this.fb.control(''),
       location: this.fb.control(ok),
       compatible: this.fb.control(ok),
-      readable: this.fb.control(ok)
+      readable: this.fb.control(ok),
+      speck: this.fb.control(ok),
+      tightening: this.fb.control(ok),
+      facility: this.fb.control(ok),
+      retrieval: this.fb.control(ok),
+      spring: this.fb.control(ok)
     });
 
     this.authService.user$.subscribe(user => {
@@ -131,6 +137,15 @@ export class QaReportsComponent implements OnInit {
     if (this.engtype === 'type2') {
       this.engfields = 2;
     }
+    if (this.engtype === 'type3') {
+      this.engfields = 3;
+    }
+    if (this.engtype === 'type4') {
+      this.engfields = 4;
+    }
+    if (this.engtype === 'type5') {
+      this.engfields = 5;
+    }
  }
 
   saveQA1() {
@@ -150,6 +165,7 @@ export class QaReportsComponent implements OnInit {
     this.crudService.createItem(this.basePath, {
       engine: this.qaForm.value.qaEngine.code,
       engType: this.qaForm.value.qaEngine.type,
+      engSubtype: this.qaForm.value.engSubtype,
       manaCode: this.qaForm.value.manaCode,
       creationDate: this.qaForm.value.qaDate,
       creationTime: hora,
@@ -195,6 +211,111 @@ export class QaReportsComponent implements OnInit {
       location: this.qaForm.value.location,
       compatible: this.qaForm.value.compatible,
       readable: this.qaForm.value.readable
+    }).then(() => {
+      this.resetForm();
+      this.showSuccess();
+    }).catch((err) => {
+      this.showError();
+      console.log(err);
+    });
+  }
+
+  saveQA3() {
+
+    this.submitted = true;
+
+    if (this.qaForm.invalid) {
+      return;
+    }
+    const cDate: Date = new Date();
+    cDate.toISOString().substr(11, 8);
+    const hr = (cDate.getHours() < 10 ? '0' : '') + cDate.getHours();
+    const min = (cDate.getMinutes() < 10 ? '0' : '') + cDate.getMinutes();
+
+    const hora = hr + ':' + min;
+
+    this.crudService.createItem(this.basePath, {
+      engine: this.qaForm.value.qaEngine.code,
+      engType: this.qaForm.value.qaEngine.type,
+      creationDate: this.qaForm.value.qaDate,
+      creationTime: hora,
+      createdBy: this.qaForm.value.createdBy,
+      result: this.qaForm.value.result,
+      stretchMarks: this.qaForm.value.stretchMarks,
+      defects: this.qaForm.value.defects,
+      remarks: this.qaForm.value.remarks
+    }).then(() => {
+      this.resetForm();
+      this.showSuccess();
+    }).catch((err) => {
+      this.showError();
+      console.log(err);
+    });
+  }
+
+  saveQA4() {
+
+    this.submitted = true;
+
+    if (this.qaForm.invalid) {
+      return;
+    }
+    const cDate: Date = new Date();
+    cDate.toISOString().substr(11, 8);
+    const hr = (cDate.getHours() < 10 ? '0' : '') + cDate.getHours();
+    const min = (cDate.getMinutes() < 10 ? '0' : '') + cDate.getMinutes();
+
+    const hora = hr + ':' + min;
+
+    this.crudService.createItem(this.basePath, {
+      engine: this.qaForm.value.qaEngine.code,
+      engType: this.qaForm.value.qaEngine.type,
+      manaCode: this.qaForm.value.manaCode,
+      creationDate: this.qaForm.value.qaDate,
+      creationTime: hora,
+      createdBy: this.qaForm.value.createdBy,
+      valveCode: this.qaForm.value.valveCode.code,
+      valveDesc: this.qaForm.value.valveCode.description,
+      speck: this.qaForm.value.speck,
+      tightening: this.qaForm.value.tightening,
+      facility: this.qaForm.value.facility,
+      remarks: this.qaForm.value.remarks
+    }).then(() => {
+      this.resetForm();
+      this.showSuccess();
+    }).catch((err) => {
+      this.showError();
+      console.log(err);
+    });
+  }
+
+  saveQA5() {
+
+    this.submitted = true;
+
+    if (this.qaForm.invalid) {
+      return;
+    }
+    const cDate: Date = new Date();
+    cDate.toISOString().substr(11, 8);
+    const hr = (cDate.getHours() < 10 ? '0' : '') + cDate.getHours();
+    const min = (cDate.getMinutes() < 10 ? '0' : '') + cDate.getMinutes();
+
+    const hora = hr + ':' + min;
+
+    this.crudService.createItem(this.basePath, {
+      engine: this.qaForm.value.qaEngine.code,
+      engType: this.qaForm.value.qaEngine.type,
+      manaCode: this.qaForm.value.manaCode,
+      creationDate: this.qaForm.value.qaDate,
+      creationTime: hora,
+      createdBy: this.qaForm.value.createdBy,
+      valveCode: this.qaForm.value.valveCode.code,
+      valveDesc: this.qaForm.value.valveCode.description,
+      retrieval: this.qaForm.value.retrieval,
+      spring: this.qaForm.value.spring,
+      defects: this.qaForm.value.defects,
+      remarks: this.qaForm.value.remarks
     }).then(() => {
       this.resetForm();
       this.showSuccess();
